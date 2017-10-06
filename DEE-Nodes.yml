@@ -1,0 +1,33 @@
+- hosts: DEE-Nodes
+  gather_facts: no
+  roles:
+   - common
+   - yum
+   - ntp
+   - firewall
+   - storage
+   - docker
+- hosts: UCP-Mgr
+  gather_facts: no
+  roles:
+   - UCPswarm
+- hosts: UCP-Mgr-Replicas
+  gather_facts: no
+  roles:
+   - UCPreplica
+- hosts: UCP-Wrk
+  gather_facts: no
+  roles:
+   - UCPworker
+- hosts: UCP-DTR
+  gather_facts: no
+  roles:
+   - UCPdtr
+- hosts: UCP-DTR-R1
+  gather_facts: no
+  roles:
+   - UCPdtr-r1
+- hosts: UCP-DTR-R2
+  gather_facts: no
+  roles:
+   - UCPdtr-r2
