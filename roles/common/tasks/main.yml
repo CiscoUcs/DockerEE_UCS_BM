@@ -1,0 +1,18 @@
+- name: Copying /etc/hosts
+  copy:
+    src=hosts dest=/etc/hosts
+- name: Copying environment
+  copy:
+    src=environment dest=/etc/environment
+- name: Copying rhsm conf
+  copy:
+    src=rhsm.conf dest=/etc/rhsm/rhsm.conf
+- name: Copying NTP conf
+  copy:
+    src=ntp.conf dest=/etc/ntp.conf
+- name: Copying bash profile
+  copy:
+    src=bash_profile dest=/root/.bash_profile
+- name: Copying enic driver
+  copy:
+    src=kmod-enic-2.3.0.39-rhel7u3.el7.x86_64.rpm dest=/root/kmod-enic-2.3.0.39-rhel7u3.el7.x86_64.rpm
