@@ -1,0 +1,8 @@
+- name: download and install DTR
+  shell: >
+    docker run -t --rm  docker/dtr:2.3.3 install --ucp-node `hostname` --ucp-insecure-tls \
+    --nfs-storage-url {{ DTR_NFS_URL }} --ucp-password {{ UCP_Admin_Pass }} --ucp-url {{ UCP_URL }} --ucp-username {{ UCP_Admin }}
+- name: capture DTR replica ID
+  shell: >
+    docker ps|grep dtr-nginx|awk '{print $NF}' | cut -d'-' -f3
+  register: replicaid
