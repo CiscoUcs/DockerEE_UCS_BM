@@ -1,0 +1,20 @@
+- name: Time Query
+  shell:
+    ntpdate -q {{ntp_server}}
+- name: Time Sync
+  shell:
+    ntpdate {{ntp_server}}
+- name: Time Query
+  shell:
+    ntpdate -q {{ntp_server}}
+- name: Install NTP Service
+  yum:
+    name: ntp
+    state: latest
+- name: Start NTP Service
+  service:
+    name: ntpd
+    state: started
+- name: Check the NTPd status
+  shell:
+    systemctl status ntpd.service
