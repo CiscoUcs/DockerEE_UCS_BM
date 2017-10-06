@@ -1,0 +1,58 @@
+- name: Firewall Port for the UCP web UI and API
+  firewalld:
+    port: 443/tcp
+    permanent: true
+    state: enabled
+- name: Firewall Port for UCP web UI and API in co-located environment
+  shell: >
+    firewall-cmd --zone=public --add-port={{ UCP_Port }}/tcp
+- name: Firewall Port for UCP web UI and API in co-located environment
+  shell: >
+    firewall-cmd --zone=public --add-port={{ UCP_Port }}/tcp --permanent
+- name: Firewall Port for the Docker Swarm manager & Port for communication between swarm nodes
+  firewalld:
+    port: 2376-2377/tcp
+    permanent: true
+    state: enabled
+- name: Firewall Port for overlay networking
+  firewalld:
+    port: 4789/udp
+    permanent: true
+    state: enabled
+- name: Firewall Port for overlay networking
+  firewalld:
+    port: 4789/tcp
+    permanent: true
+    state: enabled
+- name: Firewall Port for gossip-based clustering
+  firewalld:
+    port: 7946/tcp
+    permanent: true
+    state: enabled
+- name: Firewall Port for gossip-based clustering
+  firewalld:
+    port: 7946/udp
+    permanent: true
+    state: enabled
+- name: Firewall Port for a TLS proxy that provides access to UCP, Docker Engine, and Docker Swarm
+  firewalld:
+    port: 12376/tcp
+    permanent: true
+    state: enabled
+- name: Firewall Port for internal node configuration, cluster configuration, and HA
+  firewalld:
+    port: 12379-12387/tcp
+    permanent: true
+    state: enabled
+- name: Firewall ports for nfs service
+  firewalld:
+    service: nfs
+    permanent: true
+    state: enabled
+- name: Restart Firewalld Service
+  service:
+    name: firewalld
+    state: restarted
+- name: Check the Firewall Port status
+  shell:
+    firewall-cmd --list-all
