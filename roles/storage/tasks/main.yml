@@ -1,0 +1,36 @@
+- name: Device Mapper Driver Configuration - Physical Volume Creation
+  shell:
+    pvcreate /dev/sdb
+- name: Device Mapper Driver Configuration - Volume Group Creation
+  shell:
+    vgcreate Docker /dev/sdb
+- name: Device Mapper Driver Configuration - Logical Volume Creation
+  shell:
+    lvcreate --wipesignatures y -n thinpool Docker -l 95%VG
+- name: Device Mapper Driver Configuration - Logical Volume Creation
+  shell:
+    lvcreate --wipesignatures y -n thinpoolmeta Docker -l 1%VG
+- name: Device Mapper Driver Configuration - Thinpool conversion
+  shell:
+    lvconvert -y --zero n -c 512K --thinpool Docker/thinpool --poolmetadata Docker/thinpoolmeta
+- name: Device Mapper Driver Configuration - LVM profile Configuration
+  copy:
+    src=/root/Docker-thinpool.profile dest=/etc/lvm/profile/Docker-thinpool.profile
+- name: Device Mapper Driver Configuration - Applying new LVM profile
+  shell:
+    lvchange --metadataprofile Docker-thinpool Docker/thinpool
+- name: Device Mapper Driver Configuration - Setting LVM monitoring
+  shell:
+    lvs -o+seg_monitor
+- name: Device Mapper Driver Configuration - Checking PV status
+  shell:
+    pvs -a
+- name: Device Mapper Driver Configuration - Checking VG status
+  shell:
+    vgs -a
+- name: Device Mapper Driver Configuration - Checking LV status
+  shell:
+    lvs -a
+- name: Storage configuation status check
+  shell:
+    lsblk
