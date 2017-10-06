@@ -1,0 +1,16 @@
+- name: copy the ucp license to the remote machine
+  copy:
+    src=docker_subscription.lic dest=/tmp/
+- name: download and install ucp images
+  shell: >
+    docker container run --rm -t --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp:2.2.3 install \
+    --host-address {{UCP_Manager}} --controller-port {{UCP_Port}} --admin-username {{UCP_Admin}} --admin-password {{UCP_Admin_Pass}} \
+    --license "$(cat /tmp/docker_subscription.lic)"
+- name: capture swarm join token - manager
+  shell: >
+     docker swarm join-token manager |grep token | awk '{print $5}'
+  register: mgrtoken
+- name: capture swarm join token - worker
+  shell: >
+    docker swarm join-token worker |grep token | awk '{print $5}'
+  register: wrktoken
