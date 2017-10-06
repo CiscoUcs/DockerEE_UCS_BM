@@ -1,0 +1,4 @@
+- name: Adding Manager Replicas
+  shell: >
+    docker run -t --rm docker/dtr:2.3.3 join --ucp-node `hostname` --ucp-insecure-tls --ucp-password {{ UCP_Admin_Pass }} --ucp-url {{ UCP_URL }} \
+    --ucp-username {{ UCP_Admin }} --existing-replica-id {{ hostvars['< your first DTR Node >']['replicaid']['stdout'] }}
