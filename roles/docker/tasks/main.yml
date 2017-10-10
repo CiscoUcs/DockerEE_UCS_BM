@@ -42,3 +42,12 @@
   shell:
     systemctl enable docker.service
 - name: Docker Engine Start
+  service:
+    name: docker.service
+    state: started
+- name: Check the Docker Enterprise Engine status
+  shell:
+    systemctl status docker.service
+- name: Validate Docker install
+  shell:
+    docker info
