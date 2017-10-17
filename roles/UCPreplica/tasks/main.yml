@@ -1,3 +1,3 @@
 - name: Adding Manager Replicas
   shell: >
-    docker swarm join --token {{ hostvars['< your first UCP Manager Node >']['mgrtoken']['stdout'] }} {{ UCP_Manager }}:2377
+    docker swarm join --token {{ hostvars[groups['UCP-Mgr'][0]]['mgrtoken']['stdout'] }} {{ UCP_Manager }}:2377
