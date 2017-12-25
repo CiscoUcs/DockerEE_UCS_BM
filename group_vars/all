@@ -3,41 +3,40 @@ dee_url: "https://storebits.docker.com/ee/linux/sub-3a55d8be-ded8-497f-97ca-ee32
 
 # ntp server info
 ntp_server: "<ntp server ip>"
-ntp_server2: "<ntp server fall back ip>" 
+ntp_server2: "<ntp server ip>"
 
 # proxy info
-http_proxy: <http://ip:port/> 
+http_proxy: <http://ip:port/>
 https_proxy: <https://ip:port/> 
-no_proxy: <list of comma separated ips for setting no proxy> 
+no_proxy: <list of comma separated ips for setting no proxy>
 http_proxy_hostname: <proxy ip>
 proxy_port: <proxy port>
 
-# hosts info 
+# hosts info
 node01: <node 1 ip>
 node01_name: <node 1 name>
-node01_fqdn: <node 1 name.cisco.com/fqdn>
+node01_fqdn: <node 1 fqdn>
 
 node02: <node 2 ip>
 node02_name: <node 2 name>
-node02_fqdn: <node 2 name.cisco.com/fqdn>
+node02_fqdn: <node 2 fqdn>
 
 node0n: <node n ip> #n represents the number of nodes in the cluster
 node03_name: <node n name>
-node03_fqdn: <node n name.cisco.com/fqdn>
+node03_fqdn: <node n fqdn>
 
 buildnode: <build server ip>
 buildnode_name: <build server name>
-buildnode_fqdn: <build server name.cisco.com/fqdn>
+buildnode_fqdn: <build server fqdn>
 
 rhsm_user: ""
 rhsm_password: ""
 pool_id: "" #pool id to be attached
-UCP_Manager: "" #docker swarm controller ip 
+UCP_Manager: "" #DEE 1st Master node IP
 UCP_Admin: ""
 UCP_Admin_Pass: ""
-DTR_NFS_URL: "nfs://<ip>/"
-UCP_URL: "https://<ip:port>" #docker swarm master/controller URL 
+DTR_NFS_URL: "nfs://<NFS Host IP/<NFS share>"
+UCP_URL: "https://<IP>:<port>" #DEE Master Node/External Load Balancer URL
 UCP_Port: "" #specify UCP port for co-hosting UCP and DTR services on the same node
-
-
-
+UCP_Ver: "<UCP Version>"
+DTR_Ver: "<DTR Version>"
