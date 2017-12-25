@@ -1,22 +1,30 @@
 - name: Registering System to RHSM
-  shell:
+  shell: 
     subscription-manager register --username={{rhsm_user}} --password={{rhsm_password}}
-- name: Refresh Subscription Manager DB
+- name: Refresh Subscription Manager DB 
   shell:
     subscription-manager refresh
-- name: Subscribing to Pool
+- name: Subscribing to Pool  
   shell:
     subscription-manager attach --pool={{pool_id}}
 - name: Setting RHEL release version
   shell:
     subscription-manager release --set=7.3
 - name: Enabling Repos
-  shell:
+  shell:  
     subscription-manager repos --enable=rhel-7-server-rpms
 - name: install enic rpm from a local file
   yum:
-    name: /root/kmod-enic-2.3.0.39-rhel7u3.el7.x86_64.rpm
+    name: /root/kmod-enic-2.3.0.44-rhel7u3.el7.x86_64.rpm
     state: present
+- name: Clean all yum cache  
+  shell:
+    yum clean all
+- name: Ensure the yum package index is up to Date
+  yum:
+    update_cache: yes
+    name: '*'
+    state: latest
 - name: Yum Update
   yum:
     name: '*'

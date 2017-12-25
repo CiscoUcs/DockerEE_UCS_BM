@@ -1,7 +1,7 @@
 - name: Device Mapper Driver Configuration - Physical Volume Creation
   shell:
     pvcreate /dev/sdb
-- name: Device Mapper Driver Configuration - Volume Group Creation
+- name: Device Mapper Driver Configuration - Volume Group Creation 
   shell:
     vgcreate Docker /dev/sdb
 - name: Device Mapper Driver Configuration - Logical Volume Creation

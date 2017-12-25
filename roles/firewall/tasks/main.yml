@@ -9,7 +9,7 @@
 - name: Firewall Port for UCP web UI and API in co-located environment
   shell: >
     firewall-cmd --zone=public --add-port={{ UCP_Port }}/tcp --permanent
-- name: Firewall Port for the Docker Swarm manager & Port for communication between swarm nodes
+- name: Firewall Port for the Docker Swarm manager & Port for communication between swarm nodes 
   firewalld:
     port: 2376-2377/tcp
     permanent: true

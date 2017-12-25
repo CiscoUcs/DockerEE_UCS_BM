@@ -1,7 +1,7 @@
 - name: Time Query
   shell:
     ntpdate -q {{ntp_server}}
-- name: Time Sync
+- name: Time Sync 
   shell:
     ntpdate {{ntp_server}}
 - name: Time Query

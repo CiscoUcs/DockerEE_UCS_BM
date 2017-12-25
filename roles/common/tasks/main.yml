@@ -4,15 +4,15 @@
 - name: Copying environment
   template:
     src=environment.j2 dest=/etc/environment
-- name: Copying rhsm conf
+- name: Copying rhsm conf   
   template:
     src=rhsm.conf.j2 dest=/etc/rhsm/rhsm.conf
 - name: Copying NTP conf
   template:
     src=ntp.conf.j2 dest=/etc/ntp.conf
-- name: Copying bash profile
+- name: Copying bash profile   
   template:
     src=bash_profile.j2 dest=/root/.bash_profile
 - name: Copying enic driver
   copy:
-    src=kmod-enic-2.3.0.39-rhel7u3.el7.x86_64.rpm dest=/root/kmod-enic-2.3.0.39-rhel7u3.el7.x86_64.rpm
+    src=kmod-enic-2.3.0.44-rhel7u3.el7.x86_64.rpm dest=/root/kmod-enic-2.3.0.44-rhel7u3.el7.x86_64.rpm
