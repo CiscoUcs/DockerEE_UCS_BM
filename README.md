@@ -18,69 +18,69 @@ This repo contains Ansible play-book code for deploying Docker Enterprise Editio
   
 . Ansible play-book tree structure -
 
-.
-├── DEE-C-Nodes
-├── DEE-C-Nodes.yml
-├── DEE-Nodes
-├── DEE-Nodes.yml
-├── group_vars
-│   └── all
-└── roles
-    ├── common
-    │   ├── files
-    │   │   ├── kmod-enic-2.3.0.39-rhel7u3.el7.x86_64.rpm
-    │   │   └── kmod-enic-2.3.0.44-rhel7u3.el7.x86_64.rpm
-    │   ├── tasks
-    │   │   └── main.yml
-    │   └── templates
-    │       ├── bash_profile.j2
-    │       ├── environment.j2
-    │       ├── hosts.j2
-    │       ├── ntp.conf.j2
-    │       └── rhsm.conf.j2
-    ├── docker
-    │   ├── files
-    │   │   └── daemon.json
-    │   ├── tasks
-    │   │   └── main.yml
-    │   └── templates
-    │       └── http-proxy.conf.j2
-    ├── firewall
-    │   └── tasks
-    │       └── main.yml
-    ├── ntp
-    │   └── tasks
-    │       └── main.yml
-    ├── storage
-    │   └── tasks
-    │       └── main.yml
-    ├── UCPdtr
-    │   └── tasks
-    │       └── main.yml
-    ├── UCPdtr-r1
-    │   └── tasks
-    │       └── main.yml
-    ├── UCPdtr-r2
-    │   └── tasks
-    │       └── main.yml
-    ├── UCPreplica
-    │   ├── files
-    │   └── tasks
-    │       └── main.yml
-    ├── UCPswarm
-    │   ├── files
-    │   │   └── docker_subscription.lic
-    │   └── tasks
-    │       └── main.yml
-    ├── UCPworker
-    │   ├── files
-    │   └── tasks
-    │       └── main.yml
-    └── yum
-        └── tasks
-            └── main.yml
+  .
+  ├── DEE-C-Nodes
+  ├── DEE-C-Nodes.yml
+  ├── DEE-Nodes
+  ├── DEE-Nodes.yml
+  ├── group_vars
+  │   └── all
+  └── roles
+      ├── common
+      │   ├── files
+      │   │   ├── kmod-enic-2.3.0.39-rhel7u3.el7.x86_64.rpm
+      │   │   └── kmod-enic-2.3.0.44-rhel7u3.el7.x86_64.rpm
+      │   ├── tasks
+      │   │   └── main.yml
+      │   └── templates
+      │       ├── bash_profile.j2
+      │       ├── environment.j2
+      │       ├── hosts.j2
+      │       ├── ntp.conf.j2
+      │       └── rhsm.conf.j2
+      ├── docker
+      │   ├── files
+      │   │   └── daemon.json
+      │   ├── tasks
+      │   │   └── main.yml
+      │   └── templates
+      │       └── http-proxy.conf.j2
+      ├── firewall
+      │   └── tasks
+      │       └── main.yml
+      ├── ntp
+      │   └── tasks
+      │       └── main.yml
+      ├── storage
+      │   └── tasks
+      │       └── main.yml
+      ├── UCPdtr
+      │   └── tasks
+      │       └── main.yml
+      ├── UCPdtr-r1
+      │   └── tasks
+      │       └── main.yml
+      ├── UCPdtr-r2
+      │   └── tasks
+      │       └── main.yml
+      ├── UCPreplica
+      │   ├── files
+      │   └── tasks
+      │       └── main.yml
+      ├── UCPswarm
+      │   ├── files
+      │   │   └── docker_subscription.lic
+      │   └── tasks
+      │       └── main.yml
+      ├── UCPworker
+      │   ├── files
+      │   └── tasks
+      │       └── main.yml
+      └── yum
+          └── tasks
+              └── main.yml
 
-33 directories, 27 files
+  33 directories, 27 files
 
 . To run the playbook, one need to download entire directory structure on a build node and run following command, after editing DEE-Nodes file with cluster nodes details, putting values inside group_vars/all file -
 
