@@ -18,7 +18,6 @@ This repo contains Ansible play-book code for deploying Docker Enterprise Editio
   
 . Ansible play-book tree structure -
 
-
         .
         ├── DEE-C-Nodes
         ├── DEE-C-Nodes.yml
@@ -82,7 +81,6 @@ This repo contains Ansible play-book code for deploying Docker Enterprise Editio
                     └── main.yml
 
         33 directories, 27 files
- 
  
 . To run the playbook, one need to download entire directory structure on a build node and run following command, after editing DEE-Nodes file with cluster nodes details, putting values inside group_vars/all file -
 
