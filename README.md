@@ -81,6 +81,7 @@ This repo contains Ansible play-book code for deploying Docker Enterprise Editio
 
         33 directories, 27 files
  
+ 
 . To run the playbook, one need to download entire directory structure on a build node and run following command, after editing DEE-Nodes file with cluster nodes details, putting values inside group_vars/all file -
 
   `ansible-playbook -verbose -i /etc/ansible/DEE-Nodes DEE-Nodes.yml -u root` 
