@@ -17,6 +17,8 @@ This repo contains Ansible play-book code for deploying Docker Enterprise Editio
   
   
 . Ansible play-book tree structure -
+
+
         .
         ├── DEE-C-Nodes
         ├── DEE-C-Nodes.yml
